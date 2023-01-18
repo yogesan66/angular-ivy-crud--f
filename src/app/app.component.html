@@ -1,0 +1,42 @@
+<div class="container-fluid">
+<h3 class="center">Login Form</h3><br>
+<form [formGroup]="loginForm">
+  <label>Username:</label>
+  <input type="text" class="form-control" formControlName="username"><br>
+  <label>Password:</label>
+  <input type="password" class="form-control" formControlName="password"><br>
+  <input type="radio" formControlName="gender" value="male">
+  <label>Male</label>
+  <span class="gap">
+  <input type="radio" formControlName="gender" value="female">
+  <label>Female</label>
+  </span>
+  <span class="gap">
+  <input type="radio" formControlName="gender" value="others">
+  <label>Others</label>
+  </span><br><br>
+  <button class="btn btn-primary btn-sm" (click)="onsubmit()">Submit</button>
+</form>
+<br><br>
+<table class="table table-hover table-dark table-responsive ">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Gender</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of storage_list;let i = index">
+      <td>{{data.username}}</td>
+      <td>{{data.password}}</td>
+      <td>{{data.gender}}</td>
+      <td><button class="btn btn-secondary btn-sm" ><i class="bi bi-pencil-square"></i></button></td>
+      <td><button class="btn btn-secondary btn-sm" (click)="ondelete(i)"><i class="bi-trash-fill" style="color:red"></i></button></td>
+      
+    </tr>
+  </tbody>
+</table>
+
